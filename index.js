@@ -5,7 +5,8 @@ const Todo = require('./Models/Todo')
 const app = express()
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost:27017/todolist')
+// mongoose.connect('mongodb://localhost:27017/todolist')
+mongoose.connect(process.env.DB_CONN)
 
 app.get('/get',async (req,res)=>{
   const todos = await Todo.find()
